@@ -1,35 +1,31 @@
 import fs from 'fs';
 import path from 'path';
 
-const createTableNumber = (numberTable: number) => {
-
-   // const numberTable: number = 5;
-   const archivo = path.join(__dirname, `outputs/tabla-${numberTable}.txt`);
-
+const createTableNumber = (base: number) => {
 
    let myData = '';
-   console.log('=============================')
-   console.log(`        Table ${numberTable}`)
-   console.log('=============================')
+   const limit = 50;
+   const header = `
+=============================
+         Table ${base}
+=============================
+`;
 
-   myData += '=============================\n';
-   myData += `          Table ${numberTable}\n`
-   myData += '=============================\n';
+   const pathFile = path.join(__dirname, '../', `outputs/tabla-${base}.txt`);
 
-   try {
-
-      for (let i = 1; i <= 10; i++) {
-         console.log(`${numberTable} X ${i} = ${numberTable * i}`);
-         myData += `${numberTable} X ${i} = ${numberTable * i}\n`;
-         fs.writeFileSync(archivo, myData);
-      }
-
-   } catch (error) {
-      console.log(error);
+   for (let i = 1; i <= limit; i++) {
+      myData += `${base} X ${i} = ${base * i}\n`;
+      // console.log(`${base} X ${i} = ${base * i}`);
    }
+
+   myData = header + '\n' + myData;
+   console.log(myData)
+
+   //? Save in file and directory
+   // fs.mkdirSync(pathFile, { recursive: true });
+   fs.writeFileSync(pathFile, myData);
 }
 
-
-createTableNumber(6);
+createTableNumber(8);
 
 
