@@ -1,5 +1,6 @@
 //! usando pakage yargs
-import { yarg } from "./config/plugins/yargs.plugin";
+import { yarg } from "./config/plugins/args.plugin";
+
 
 // console.log(process.argv)
 // console.log('=============================')
@@ -12,7 +13,7 @@ import { yarg } from "./config/plugins/yargs.plugin";
 
 async function main() {
 
-
+   console.log( yarg )
 
 }
 
