@@ -5,9 +5,9 @@ export interface SaveFileUseCase {
 }
 
 export interface Options {
-   fileContent : string;
+   fileContent: string;
    fileDestination?: string;
-   fileName?   : string;
+   fileName?: string;
 }
 
 
@@ -26,7 +26,6 @@ export class SaveFile implements SaveFileUseCase {
       try {
          fs.mkdirSync(fileDestination, { recursive: true });
          fs.writeFileSync(`${ fileDestination }/${ fileName  }.txt`, fileContent);
-         // console.log('File craeted!');
          return true;
 
       } catch (error) {
