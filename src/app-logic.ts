@@ -1,10 +1,15 @@
 import fs from 'fs';
 import path from 'path';
+import { yarg } from './config/plugins/args.plugin';
+
+// console.log(yarg)
 
 const createTableNumber = (base: number) => {
 
+
+
    let myData = '';
-   const limit = 10;
+   const limit = yarg.l;
    const header = `
 =============================
          Table ${base}
@@ -19,13 +24,17 @@ const createTableNumber = (base: number) => {
    }
 
    myData = header + '\n' + myData;
-   console.log(myData)
+
+   if (yarg.s) {
+      console.log(myData)
+   }
 
    //? Save in file and directory
    // fs.mkdirSync(pathFile, { recursive: true });
    fs.writeFileSync(pathFile, myData);
+   console.log('File craeted!');
 }
 
-createTableNumber(8);
+createTableNumber(yarg.b);
 
 
