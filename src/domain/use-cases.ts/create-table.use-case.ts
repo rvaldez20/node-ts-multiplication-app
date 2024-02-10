@@ -3,7 +3,7 @@ export interface CreateTableUseCase {
 }
 
 export interface CreateTableOptions {
-   base: number;
+   base  : number;
    limit?: number;
 }
 
